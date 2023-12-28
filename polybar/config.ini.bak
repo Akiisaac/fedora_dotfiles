@@ -1,0 +1,417 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #282A2E
+background-alt = #373B41
+foreground = #C5C8C6
+primary = #DF5296
+; #F0C674
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
+
+
+[bar/top]
+line-size = 0
+line-color = #f00
+border-size = 0
+; border-color = #00000000
+
+width = 100%
+height = 30
+offset-y = 0
+offset-x = 0
+
+border-top-size = 0
+border-bottom-size = 0
+border-right-size = 0
+border-left-size = 0
+
+bottom = false
+
+font-0 = "JetBrainsMono Nerd Font:1"
+font-1 = "JetBrainsMono Nerd Font:1"
+font-2 = "JetBrainsMono Nerd Font:1"
+font-3 = "JetBrainsMono Nerd Font:1"
+font-4 = "JetBrainsMono Nerd Font:1"
+; font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11;3"
+; font-4 = "Scientifica:size=11;3"
+
+; background = #15151599
+background-alt = #555
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #E1D4AE
+secondary = #e60053
+alert = #B2535B
+
+; radius = 10
+fixed-center = true
+padding-left = 0
+padding-right = 1
+module-margin-left = 0
+module-margin-right = 1
+
+; here2
+modules-center = date
+modules-left = i3 spotify
+modules-right = pulseaudio toggle wlan battery name
+;pulseaudio butt wlan battery powermenu
+
+; down
+[bar/i3bar]
+line-size = 0
+line-color = #f00
+border-size = 0
+; border-color = #00000000
+
+width = 100%
+height = 22
+offset-y = 0
+offset-x = 0
+
+border-top-size = 0
+border-bottom-size = 0
+border-right-size = 0
+border-left-size = 0
+
+bottom = true
+
+font-0 = "JetBrainsMono Nerd Font:2"
+font-1 = "JetBrainsMono Nerd Font:2"
+font-2 = "JetBrainsMono Nerd Font:2"
+font-3 = "JetBrainsMono Nerd Font:2"
+font-4 = "JetBrainsMono Nerd Font:2"
+; font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11;3"
+; font-4 = "Scientifica:size=11;3"
+
+; background = #151515 
+background-alt = #555
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #E1D4AE
+secondary = #e60053
+alert = #B2535B
+
+; radius = 10
+fixed-center = true
+padding-left = 1
+padding-right = 0
+module-margin-left = 1
+module-margin-right = 1
+
+; here
+modules-center = xwindow
+; modules-left = date spotify
+; modules-right = pulseaudio butt wlan battery powermenu
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = false
+wrapping-scroll = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+;
+; Only show workspaces on the same output as the bar
+; pin-workspaces = true
+
+label-mode-padding = 0
+label-mode-foreground = #b1b0b0
+label-mode-background = #b1b0b0
+
+; focused = Active workspace on focused monitor
+label-focused =  
+; label-focused-background = 󰔷 
+label-focused-foreground = #9e1078
+; label-focused-underline = ${colors.secondary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
+label-unfocused-foreground =#b3b3b3
+label-unfocused-underline = 
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+; label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+; label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; format-volume = " <label-volume> <bar-volume>"
+format-volume = "󰋋 <bar-volume>"
+format-volume-foreground = #b3b3b3
+label-volume = %percentage%
+label-volume-foreground = #b3b3b3
+
+label-muted = 󰟎 muted
+label-muted-foreground =#b3b3b3
+
+bar-volume-width = 7
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #9e1078
+bar-volume-foreground-4 = #9e1078
+bar-volume-foreground-5 = #9e1078
+bar-volume-foreground-6 = #9e1078
+bar-volume-foreground-7 = #9e1078
+bar-volume-foreground-8 = #9e1078
+bar-volume-foreground-9 = #9e1078
+bar-volume-foreground-10 = #f16060
+bar-volume-gradient = false
+bar-volume-indicator =
+bar-volume-indicator-font = 4
+bar-volume-fill = ─
+bar-volume-fill-font = 4
+bar-volume-empty = ─
+bar-volume-empty-font = 4
+bar-volume-empty-foreground = ${colors.foreground}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 100
+
+poll-interval = 2
+time-format = %I:%M
+
+format-charging = | <animation-charging> <label-charging> |
+format-charging-background =
+;${colors.shade5}
+format-charging-foreground = #b3b3b3
+; ${colors.primary}
+;${colors.modulefg}
+format-charging-padding = 0
+
+format-discharging = | <animation-discharging> <label-discharging> |
+format-discharging-background = 
+;${colors.shade5} ${colors.primary}
+format-discharging-foreground = #b3b3b3
+; ${colors.primary}
+;${colors.modulefg}
+format-discharging-padding = 0
+
+label-charging = %percentage%%
+label-charging-foreground = #b3b3b3
+label-discharging = %percentage%%
+label-discharging-foreground = #b3b3b3
+
+label-full = "| |"
+label-full-background =
+label-full-foreground = #b3b3b3
+label-full-padding = 0
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-foreground =#b3b3b3
+; ${colors.primary}
+; ramp-capacity-4 = 
+; ramp-capacity-5 = 
+; ramp-capacity-6 = 
+; ramp-capacity-7 = 
+; ramp-capacity-8 = 
+; ramp-capacity-9 = 
+; ramp-capacity-10 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #b3b3b3
+animation-charging-framerate = 1500
+
+animation-discharging-0 = 
+; animation-discharging-1 = 
+; animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground}
+animation-discharging-framerate = 2000
+
+[module/powermenu]
+type=custom/text
+content= ""
+content-padding = 1
+content-foreground =#f7f3f3
+;${colors.primary}
+content-background = #f16060
+; ${colors.secondary}
+;(wifi-icon)
+click-left= exec $HOME/.config/utility/powermenu/powermenu.sh
+; type = custom/menu
+; expand-right = true
+; format-spacing = 1
+
+label-open = " "
+; label-open-foreground = #8ABEB7
+; ${colors.primary}
+; label-close = "Cancel"
+; label-close-foreground = ${colors.secondary}
+; label-separator = "|"
+; label-separator-foreground = ${colors.primary}
+; menu-0-0 = Power
+; menu-0-0-exec = $HOME/.config/utility/powermenu/powermenu.sh
+; menu-0-1 = Power-off
+; menu-0-1-exec = systemctl poweroff
+; menu-0-2 = Suspend
+; menu-0-2-exec = systemctl suspend
+
+[module/name]
+type = custom/script
+exec = whoami
+click-left = $HOME/.config/rofi/powermenu/powermenu.sh
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =
+date-alt = "%Y-%m-%d"
+
+time = "%A, %d %b %Y, %H:%M"
+time-alt = %H:%M:%S
+
+; format-prefix = "󱑆"
+; format-prefix-foreground = #b1b0b0
+;${colors.primary}
+format-underline = 
+format-foreground = #b3b3b3
+;${colors.primary}
+
+label = %date% %time%
+
+[module/xwindow]
+type = internal/xwindow
+format-foreground = #b3b3b3
+label = %title%
+label-maxlen = 80
+
+[module/toggle]
+type = custom/text
+content = "|󰁋"
+content-foreground = #b3b3b3
+click-left = python ~/.config/polybar/tray.py 
+
+[module/wlan]
+interface-type = wireless
+type = internal/network
+interval = 2
+
+; format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal>
+format-connected-underline = 
+label-connected = %essid%
+label-connected-foreground = #9e1078
+;${colors.secondary}
+
+; format-disconnected =
+format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected =󰖪
+;%ifname% disconnected
+label-disconnected-foreground = #b3b3b3
+; ${colors.primary}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+ramp-signal-foreground = #9e1078
+; ${colors.secondary}
+
+[module/spotify]
+type = custom/script
+interval = 2
+; format-prefix = " "
+format = <label>
+exec = python $HOME/.config/polybar/spotify.py
+format-underline = 
+format-foreground = #b3b3b3
+;${colors.primary}
+;
+; [settings]
+; screenchange-reload = true
+; pseudo-transparency = true
+;
+; ; vim:ft=dosini
+;
+; [module/arrow]	
+; type = custom/text
+; ; content =   #use this if it looks small : content = %{T2}%{T-}
+; content = 
+; content-background = ${colors.background}
+; content-foreground = ${colors.primary}
+; ; click-right = python ~/.config/polybar/tray.py 
+; click-left = python ~/.config/polybar/tray.py 
+
+[module/nothing]
+type = custom/script
+exec = echo ""
+hidden = true
+[bar/tray]
+;change this to control the size
+width = 6%
+height = 15pt
+; border-size = 1px
+;and this to control the postition (adjust it for ur monitor)
+offset-x = 85% 
+offset-y =93%
+;and this for colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+tray-background = ${colors.background}
+border-color =${colors.primary}
+;u probably don't want to change this 
+fixed-center = true
+override-redirect = true 
+modules-left = nothing
+padding-right = 1
+padding-left = 1
+tray-position = right
+tray-detached = true
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 4
+tray-maxsize = 20
+tray-scale = 1.0
+monitor-strict = false
